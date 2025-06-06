@@ -1,0 +1,242 @@
+'data.frame':	12224 obs. of  25 variables:
+ $ Id              : Factor w/ 3241 levels "4","6","11","13",..: 557 557 557 557 558 558 558 558 559 559 ...
+ $ FormatInfo      : Factor w/ 3 levels "Can","USA","New": 3 3 3 3 1 1 1 1 3 3 ...
+ $ FormatFeedback  : Ord.factor w/ 4 levels "None"<"Artic"<..: 1 1 4 4 1 1 1 1 1 1 ...
+ $ ScenID          : Factor w/ 6 levels "1","5","6","7",..: 1 1 4 4 2 2 5 5 4 4 ...
+ $ RouteType       : Factor w/ 2 levels "Simple","Complex": 1 2 1 2 1 2 1 2 1 2 ...
+ $ Set             : Factor w/ 2 levels "Set1","Set2": 1 1 2 2 1 1 2 2 1 1 ...
+ $ ScenNum         : num  1 2 3 4 1 2 3 4 1 2 ...
+ $ RankLeast       : chr  "B" "C" "C" "C" ...
+ $ RankInt         : chr  "A" "A" "A" "A" ...
+ $ RankMost        : chr  "C" "B" "B" "B" ...
+ $ ResultNum       : num  1 1 3 3 3 3 3 3 3 1 ...
+ $ ResultCat       : Factor w/ 2 levels "Incorrect","Correct": 1 1 2 2 2 2 2 2 2 1 ...
+ $ DurSec          : num  73 87 80 63 80 56 80 59 104 131 ...
+ $ BullCountry     : Factor w/ 2 levels "Can","USA": 1 1 1 1 1 1 1 1 2 2 ...
+ $ DemogrGender    : Factor w/ 4 levels "Male","Female",..: 2 2 2 2 1 1 1 1 1 1 ...
+ $ DemogrAge       : Ord.factor w/ 5 levels "20-24"<"25-34"<..: 3 3 3 3 2 2 2 2 5 5 ...
+ $ DemogrEduc      : Ord.factor w/ 6 levels "<Highschool"<..: 5 5 5 5 5 5 5 5 5 5 ...
+ $ BackgrYrsOfExp  : Ord.factor w/ 5 levels "First year"<"2-5 yrs"<..: 2 2 2 2 3 3 3 3 5 5 ...
+ $ BullUseType     : Ord.factor w/ 6 levels "A"<"B"<"C"<"D"<..: 2 2 2 2 2 2 2 2 5 5 ...
+ $ BackgrAvTraining: Ord.factor w/ 4 levels "None"<"Intro"<..: 2 2 2 2 1 1 1 1 3 3 ...
+ $ BullUseFreq     : Ord.factor w/ 5 levels "rarely"<"sometimes"<..: 4 4 4 4 2 2 2 2 5 5 ...
+ $ BackgrActivity_1: Factor w/ 6 levels "SS","IC","OB",..: 4 4 4 4 4 4 4 4 4 4 ...
+ $ MapTest         : Factor w/ 2 levels "Fail","Pass": 1 1 1 1 1 1 1 1 2 2 ...
+ $ UsedPhone       : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...
+ $ BackgrDaysPerYr : Ord.factor w/ 5 levels "1-2 days"<"3-10 days"<..: NA NA NA NA 1 1 1 1 3 3 ...
+[1] 12224
+[1] 3056
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    6.0    60.0    87.0   109.5   134.0   599.0 
+Analysis of Deviance Table (Type II Wald chisquare tests)
+
+Response: DurSec
+                                   Chisq Df Pr(>Chisq)    
+FormatInfo                       55.3758  2  9.447e-13 ***
+BackgrAvTraining                 33.8066  3  2.176e-07 ***
+FormatFeedback                   15.6226  3   0.001355 ** 
+RouteType                       201.1465  1  < 2.2e-16 ***
+Set                             152.7016  1  < 2.2e-16 ***
+MapTest                          34.6880  1  3.870e-09 ***
+DemogrAge                       213.0959  4  < 2.2e-16 ***
+FormatInfo:BackgrAvTraining      10.6319  6   0.100441    
+BackgrAvTraining:FormatFeedback   8.6074  9   0.474274    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Analysis of Deviance Table (Type II Wald chisquare tests)
+
+Response: DurSec
+                   Chisq Df Pr(>Chisq)    
+FormatInfo        55.616  2  8.377e-13 ***
+FormatFeedback    15.764  3   0.001268 ** 
+BackgrAvTraining  33.621  3  2.382e-07 ***
+RouteType        201.205  1  < 2.2e-16 ***
+Set              152.955  1  < 2.2e-16 ***
+MapTest           35.816  1  2.169e-09 ***
+DemogrAge        211.628  4  < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+ Family: Gamma  ( log )
+Formula:          DurSec ~ FormatInfo + FormatFeedback + BackgrAvTraining + RouteType +      Set + MapTest + DemogrAge + (1 | Id) + (1 | ScenID)
+Data: Rank
+
+     AIC      BIC   logLik deviance df.resid 
+129530.6 129671.4 -64746.3 129492.6    12177 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ Id     (Intercept) 0.13320  0.365   
+ ScenID (Intercept) 0.02279  0.151   
+Number of obs: 12196, groups:  Id, 3049; ScenID, 6
+
+Dispersion estimate for Gamma family (sigma^2):  0.2 
+
+Conditional model:
+                          Estimate Std. Error z value Pr(>|z|)    
+(Intercept)               4.380296   0.071728   61.07  < 2e-16 ***
+FormatInfoUSA            -0.123030   0.020229   -6.08 1.19e-09 ***
+FormatInfoNew            -0.139792   0.020260   -6.90 5.21e-12 ***
+FormatFeedbackArtic       0.063623   0.020758    3.07  0.00218 ** 
+FormatFeedbackAnswers    -0.013841   0.020509   -0.67  0.49976    
+FormatFeedbackExpl        0.016465   0.020669    0.80  0.42568    
+BackgrAvTrainingIntro     0.093173   0.021729    4.29 1.80e-05 ***
+BackgrAvTrainingAdvanced  0.134458   0.025827    5.21 1.93e-07 ***
+BackgrAvTrainingProf      0.128275   0.026844    4.78 1.77e-06 ***
+RouteTypeComplex          0.117798   0.008305   14.18  < 2e-16 ***
+SetSet2                  -0.185962   0.015036  -12.37  < 2e-16 ***
+MapTestPass               0.103074   0.017223    5.98 2.17e-09 ***
+DemogrAge25-34            0.090544   0.031531    2.87  0.00408 ** 
+DemogrAge35-44            0.157333   0.033404    4.71 2.48e-06 ***
+DemogrAge45-54            0.230666   0.035040    6.58 4.61e-11 ***
+DemogrAge55+              0.376349   0.034013   11.06  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Analysis of Deviance Table (Type II Wald chisquare tests)
+
+Response: DurSec
+                   Chisq Df Pr(>Chisq)    
+FormatInfo        55.042  2  1.116e-12 ***
+FormatFeedback    15.971  3    0.00115 ** 
+BackgrAvTraining  33.389  3  2.667e-07 ***
+RouteType        201.258  1  < 2.2e-16 ***
+Set              153.102  1  < 2.2e-16 ***
+MapTest           35.861  1  2.119e-09 ***
+DemogrAgeLin     205.855  1  < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+ Family: Gamma  ( log )
+Formula:          DurSec ~ FormatInfo + FormatFeedback + BackgrAvTraining + RouteType +      Set + MapTest + DemogrAgeLin + (1 | Id) + (1 | ScenID)
+Data: Rank
+
+     AIC      BIC   logLik deviance df.resid 
+129530.2 129648.7 -64749.1 129498.2    12180 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ Id     (Intercept) 0.13353  0.3654  
+ ScenID (Intercept) 0.02281  0.1510  
+Number of obs: 12196, groups:  Id, 3049; ScenID, 6
+
+Dispersion estimate for Gamma family (sigma^2):  0.2 
+
+Conditional model:
+                          Estimate Std. Error z value Pr(>|z|)    
+(Intercept)               4.282060   0.069494   61.62  < 2e-16 ***
+FormatInfoUSA            -0.123442   0.020232   -6.10 1.05e-09 ***
+FormatInfoNew            -0.138367   0.020258   -6.83 8.48e-12 ***
+FormatFeedbackArtic       0.064183   0.020760    3.09  0.00199 ** 
+FormatFeedbackAnswers    -0.013721   0.020512   -0.67  0.50353    
+FormatFeedbackExpl        0.016400   0.020672    0.79  0.42756    
+BackgrAvTrainingIntro     0.094190   0.021724    4.34 1.45e-05 ***
+BackgrAvTrainingAdvanced  0.134732   0.025827    5.22 1.82e-07 ***
+BackgrAvTrainingProf      0.126024   0.026786    4.70 2.54e-06 ***
+RouteTypeComplex          0.117815   0.008305   14.19  < 2e-16 ***
+SetSet2                  -0.186070   0.015038  -12.37  < 2e-16 ***
+MapTestPass               0.103043   0.017207    5.99 2.12e-09 ***
+DemogrAgeLin              0.090046   0.006276   14.35  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Intraclass Correlation Coefficient
+
+     Adjusted ICC: 0.438
+  Conditional ICC: 0.402
+                 R2m       R2c
+delta     0.08167696 0.4840770
+lognormal 0.08558779 0.5072554
+trigamma  0.07740897 0.4587818
+ FormatInfo response   SE    df lower.CL upper.CL
+ Can           107.4 6.85 12180     94.7      122
+ USA            94.9 6.04 12180     83.8      108
+ New            93.5 5.95 12180     82.5      106
+
+Results are averaged over the levels of: FormatFeedback, BackgrAvTraining, RouteType, Set, MapTest 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+ contrast  ratio     SE    df t.ratio p.value
+ Can / USA  1.13 0.0229 12180 6.101   <.0001 
+ Can / New  1.15 0.0233 12180 6.830   <.0001 
+ USA / New  1.02 0.0198 12180 0.764   0.7249 
+
+Results are averaged over the levels of: FormatFeedback, BackgrAvTraining, RouteType, Set, MapTest 
+P value adjustment: tukey method for comparing a family of 3 estimates 
+Tests are performed on the log scale 
+ FormatFeedback response   SE    df lower.CL upper.CL
+ None               96.8 6.06 12180     85.6      109
+ Artic             103.2 6.65 12180     90.9      117
+ Answers            95.4 6.14 12180     84.1      108
+ Expl               98.4 6.33 12180     86.7      112
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, RouteType, Set, MapTest 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+ contrast       ratio     SE    df t.ratio p.value
+ Artic / None   1.066 0.0221 12180  3.092  0.0058 
+ Answers / None 0.986 0.0202 12180 -0.669  0.8136 
+ Expl / None    1.017 0.0210 12180  0.793  0.7422 
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, RouteType, Set, MapTest 
+P value adjustment: dunnettx method for 3 tests 
+Tests are performed on the log scale 
+ BackgrAvTraining response   SE    df lower.CL upper.CL
+ None                 90.0 5.83 12180     79.3      102
+ Intro                98.9 6.24 12180     87.4      112
+ Advanced            103.0 6.66 12180     90.8      117
+ Prof                102.1 6.65 12180     89.9      116
+
+Results are averaged over the levels of: FormatInfo, FormatFeedback, RouteType, Set, MapTest 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+ contrast         ratio     SE    df t.ratio p.value
+ Intro / None     1.099 0.0239 12180  4.336  <.0001 
+ Advanced / Intro 1.041 0.0223 12180  1.892  0.1525 
+ Prof / Advanced  0.991 0.0262 12180 -0.330  0.9780 
+
+Results are averaged over the levels of: FormatInfo, FormatFeedback, RouteType, Set, MapTest 
+P value adjustment: mvt method for 3 tests 
+Tests are performed on the log scale 
+ RouteType response   SE    df lower.CL upper.CL
+ Simple        92.8 5.83 12180     82.0      105
+ Complex      104.4 6.56 12180     92.3      118
+
+Results are averaged over the levels of: FormatInfo, FormatFeedback, BackgrAvTraining, Set, MapTest 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+ contrast         ratio      SE    df t.ratio p.value
+ Simple / Complex 0.889 0.00738 12180 -14.187 <.0001 
+
+Results are averaged over the levels of: FormatInfo, FormatFeedback, BackgrAvTraining, Set, MapTest 
+Tests are performed on the log scale 
+ Set  response   SE    df lower.CL upper.CL
+ Set1    108.0 6.88 12180     95.3      122
+ Set2     89.7 5.60 12180     79.3      101
+
+Results are averaged over the levels of: FormatInfo, FormatFeedback, BackgrAvTraining, RouteType, MapTest 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+ contrast    ratio     SE    df t.ratio p.value
+ Set1 / Set2   1.2 0.0181 12180 12.373  <.0001 
+
+Results are averaged over the levels of: FormatInfo, FormatFeedback, BackgrAvTraining, RouteType, MapTest 
+Tests are performed on the log scale 
+ MapTest response   SE    df lower.CL upper.CL
+ Fail        93.5 5.96 12180     82.5      106
+ Pass       103.6 6.50 12180     91.6      117
+
+Results are averaged over the levels of: FormatInfo, FormatFeedback, BackgrAvTraining, RouteType, Set 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 
+ contrast    ratio     SE    df t.ratio p.value
+ Fail / Pass 0.902 0.0155 12180 -5.988  <.0001 
+
+Results are averaged over the levels of: FormatInfo, FormatFeedback, BackgrAvTraining, RouteType, Set 
+Tests are performed on the log scale 
+ DemogrAgeLin response   SE    df lower.CL upper.CL
+         3.01     98.4 6.17 12180       87      111
+
+Results are averaged over the levels of: FormatInfo, FormatFeedback, BackgrAvTraining, RouteType, Set, MapTest 
+Confidence level used: 0.95 
+Intervals are back-transformed from the log scale 

@@ -1,0 +1,231 @@
+'data.frame':	12224 obs. of  25 variables:
+ $ Id              : Factor w/ 3241 levels "4","6","11","13",..: 557 557 557 557 558 558 558 558 559 559 ...
+ $ FormatInfo      : Factor w/ 3 levels "Can","USA","New": 3 3 3 3 1 1 1 1 3 3 ...
+ $ FormatFeedback  : Ord.factor w/ 4 levels "None"<"Artic"<..: 1 1 4 4 1 1 1 1 1 1 ...
+ $ ScenID          : Factor w/ 6 levels "1","5","6","7",..: 1 1 4 4 2 2 5 5 4 4 ...
+ $ RouteType       : Factor w/ 2 levels "Simple","Complex": 1 2 1 2 1 2 1 2 1 2 ...
+ $ Set             : Factor w/ 2 levels "Set1","Set2": 1 1 2 2 1 1 2 2 1 1 ...
+ $ ScenNum         : num  1 2 3 4 1 2 3 4 1 2 ...
+ $ RankLeast       : chr  "B" "C" "C" "C" ...
+ $ RankInt         : chr  "A" "A" "A" "A" ...
+ $ RankMost        : chr  "C" "B" "B" "B" ...
+ $ ResultNum       : num  1 1 3 3 3 3 3 3 3 1 ...
+ $ ResultCat       : Factor w/ 2 levels "Incorrect","Correct": 1 1 2 2 2 2 2 2 2 1 ...
+ $ DurSec          : num  73 87 80 63 80 56 80 59 104 131 ...
+ $ BullCountry     : Factor w/ 2 levels "Can","USA": 1 1 1 1 1 1 1 1 2 2 ...
+ $ DemogrGender    : Factor w/ 4 levels "Male","Female",..: 2 2 2 2 1 1 1 1 1 1 ...
+ $ DemogrAge       : Ord.factor w/ 5 levels "20-24"<"25-34"<..: 3 3 3 3 2 2 2 2 5 5 ...
+ $ DemogrEduc      : Ord.factor w/ 6 levels "<Highschool"<..: 5 5 5 5 5 5 5 5 5 5 ...
+ $ BackgrYrsOfExp  : Ord.factor w/ 5 levels "First year"<"2-5 yrs"<..: 2 2 2 2 3 3 3 3 5 5 ...
+ $ BullUseType     : Ord.factor w/ 6 levels "A"<"B"<"C"<"D"<..: 2 2 2 2 2 2 2 2 5 5 ...
+ $ BackgrAvTraining: Ord.factor w/ 4 levels "None"<"Intro"<..: 2 2 2 2 1 1 1 1 3 3 ...
+ $ BullUseFreq     : Ord.factor w/ 5 levels "rarely"<"sometimes"<..: 4 4 4 4 2 2 2 2 5 5 ...
+ $ BackgrActivity_1: Factor w/ 6 levels "SS","IC","OB",..: 4 4 4 4 4 4 4 4 4 4 ...
+ $ MapTest         : Factor w/ 2 levels "Fail","Pass": 1 1 1 1 1 1 1 1 2 2 ...
+ $ UsedPhone       : Factor w/ 2 levels "No","Yes": 1 1 1 1 1 1 1 1 1 1 ...
+ $ BackgrDaysPerYr : Ord.factor w/ 5 levels "1-2 days"<"3-10 days"<..: NA NA NA NA 1 1 1 1 3 3 ...
+[1] 12224
+[1] 3056
+
+Incorrect   Correct 
+     3105      9119 
+
+Incorrect   Correct 
+     25.4      74.6 
+Analysis of Deviance Table (Type II Wald chisquare tests)
+
+Response: ResultCat
+                                   Chisq Df Pr(>Chisq)    
+FormatInfo                        9.5907  2   0.008268 ** 
+BackgrAvTraining                 30.3680  3  1.155e-06 ***
+FormatFeedback                    5.8546  3   0.118904    
+RouteType                       279.9816  1  < 2.2e-16 ***
+Set                               6.2415  1   0.012479 *  
+MapTest                          56.1307  1  6.781e-14 ***
+BackgrActivity_1                 41.1903  5  8.588e-08 ***
+UsedPhone                         8.4059  1   0.003740 ** 
+FormatInfo:BackgrAvTraining       4.2419  6   0.643982    
+BackgrAvTraining:FormatFeedback   7.7655  9   0.557943    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Analysis of Deviance Table (Type II Wald chisquare tests)
+
+Response: ResultCat
+                    Chisq Df Pr(>Chisq)    
+FormatInfo         9.9188  2   0.007017 ** 
+FormatFeedback     5.7359  3   0.125190    
+BackgrAvTraining  30.6702  3  9.974e-07 ***
+RouteType        279.8061  1  < 2.2e-16 ***
+Set                6.2940  1   0.012115 *  
+MapTest           55.0505  1  1.175e-13 ***
+BackgrActivity_1  41.7672  5  6.565e-08 ***
+UsedPhone          7.9910  1   0.004701 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Analysis of Deviance Table (Type II Wald chisquare tests)
+
+Response: ResultCat
+                    Chisq Df Pr(>Chisq)    
+FormatInfo         9.5859  2  0.0082880 ** 
+BackgrAvTraining  30.6973  3  9.844e-07 ***
+RouteType        279.6466  1  < 2.2e-16 ***
+Set               13.0884  1  0.0002971 ***
+MapTest           54.6538  1  1.437e-13 ***
+BackgrActivity_1  41.6261  5  7.011e-08 ***
+UsedPhone          7.9668  1  0.0047644 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+ Family: binomial  ( logit )
+Formula:          ResultCat ~ FormatInfo + BackgrAvTraining + RouteType + Set +      MapTest + BackgrActivity_1 + UsedPhone + (1 | Id) + (1 |  
+    ScenID)
+Data: Rank
+
+     AIC      BIC   logLik deviance df.resid 
+ 12574.1  12700.1  -6270.1  12540.1    12207 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ Id     (Intercept) 0.6818   0.8257  
+ ScenID (Intercept) 0.4253   0.6521  
+Number of obs: 12224, groups:  Id, 3056; ScenID, 6
+
+Conditional model:
+                         Estimate Std. Error z value Pr(>|z|)    
+(Intercept)               0.90944    0.29964   3.035 0.002404 ** 
+FormatInfoUSA             0.15643    0.07355   2.127 0.033424 *  
+FormatInfoNew            -0.04997    0.07342  -0.681 0.496134    
+BackgrAvTrainingIntro     0.34746    0.07735   4.492 7.05e-06 ***
+BackgrAvTrainingAdvanced  0.35713    0.09418   3.792 0.000150 ***
+BackgrAvTrainingProf      0.51517    0.09923   5.192 2.08e-07 ***
+RouteTypeComplex         -0.80077    0.04789 -16.723  < 2e-16 ***
+SetSet2                   0.16929    0.04679   3.618 0.000297 ***
+MapTestPass               0.44852    0.06067   7.393 1.44e-13 ***
+BackgrActivity_1IC        0.04320    0.23432   0.184 0.853715    
+BackgrActivity_1OB        0.17433    0.15410   1.131 0.257935    
+BackgrActivity_1BC        0.22001    0.12301   1.789 0.073677 .  
+BackgrActivity_1SMBC     -0.51463    0.23090  -2.229 0.025830 *  
+BackgrActivity_1SM       -0.42625    0.16475  -2.587 0.009676 ** 
+UsedPhoneYes             -0.17313    0.06134  -2.823 0.004764 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Intraclass Correlation Coefficient
+
+     Adjusted ICC: 0.252
+  Conditional ICC: 0.236
+                   R2m       R2c
+theoretical 0.06396043 0.2996434
+delta       0.04498537 0.2107486
+ FormatInfo  prob     SE    df lower.CL upper.CL
+ Can        0.722 0.0555 12207    0.601    0.817
+ USA        0.752 0.0515 12207    0.638    0.839
+ New        0.711 0.0567 12207    0.589    0.809
+
+Results are averaged over the levels of: BackgrAvTraining, RouteType, Set, MapTest, BackgrActivity_1, UsedPhone 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+ contrast  odds.ratio     SE    df t.ratio p.value
+ Can / USA      0.855 0.0629 12207 -2.127  0.0845 
+ Can / New      1.051 0.0772 12207  0.681  0.7748 
+ USA / New      1.229 0.0849 12207  2.987  0.0079 
+
+Results are averaged over the levels of: BackgrAvTraining, RouteType, Set, MapTest, BackgrActivity_1, UsedPhone 
+P value adjustment: tukey method for comparing a family of 3 estimates 
+Tests are performed on the log odds ratio scale 
+ BackgrAvTraining  prob     SE    df lower.CL upper.CL
+ None             0.664 0.0619 12207    0.535    0.773
+ Intro            0.737 0.0532 12207    0.621    0.828
+ Advanced         0.739 0.0540 12207    0.620    0.830
+ Prof             0.768 0.0502 12207    0.656    0.852
+
+Results are averaged over the levels of: FormatInfo, RouteType, Set, MapTest, BackgrActivity_1, UsedPhone 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+ contrast         odds.ratio    SE    df t.ratio p.value
+ Intro / None           1.42 0.109 12207 4.492   <.0001 
+ Advanced / Intro       1.01 0.078 12207 0.125   0.9987 
+ Prof / Advanced        1.17 0.114 12207 1.629   0.2586 
+
+Results are averaged over the levels of: FormatInfo, RouteType, Set, MapTest, BackgrActivity_1, UsedPhone 
+P value adjustment: mvt method for 3 tests 
+Tests are performed on the log odds ratio scale 
+ RouteType  prob     SE    df lower.CL upper.CL
+ Simple    0.800 0.0439 12207    0.701    0.873
+ Complex   0.643 0.0629 12207    0.513    0.755
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, Set, MapTest, BackgrActivity_1, UsedPhone 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+ contrast         odds.ratio    SE    df t.ratio p.value
+ Simple / Complex       2.23 0.107 12207 16.723  <.0001 
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, Set, MapTest, BackgrActivity_1, UsedPhone 
+Tests are performed on the log odds ratio scale 
+ Set   prob     SE    df lower.CL upper.CL
+ Set1 0.712 0.0563 12207    0.590    0.809
+ Set2 0.745 0.0521 12207    0.631    0.833
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, RouteType, MapTest, BackgrActivity_1, UsedPhone 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+ contrast    odds.ratio     SE    df t.ratio p.value
+ Set1 / Set2      0.844 0.0395 12207 -3.618  0.0003 
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, RouteType, MapTest, BackgrActivity_1, UsedPhone 
+Tests are performed on the log odds ratio scale 
+ BackgrActivity_1  prob     SE    df lower.CL upper.CL
+ SS               0.745 0.0556 12207    0.622    0.838
+ IC               0.753 0.0623 12207    0.613    0.855
+ OB               0.777 0.0496 12207    0.665    0.859
+ BC               0.784 0.0456 12207    0.682    0.861
+ SMBC             0.636 0.0768 12207    0.477    0.770
+ SM               0.656 0.0658 12207    0.519    0.772
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, RouteType, Set, MapTest, UsedPhone 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+ contrast  odds.ratio     SE    df t.ratio p.value
+ SS / IC        0.958 0.2244 12207 -0.184  1.0000 
+ SS / OB        0.840 0.1294 12207 -1.131  0.8685 
+ SS / BC        0.803 0.0987 12207 -1.789  0.4731 
+ SS / SMBC      1.673 0.3863 12207  2.229  0.2245 
+ SS / SM        1.532 0.2523 12207  2.587  0.1004 
+ IC / OB        0.877 0.1985 12207 -0.580  0.9924 
+ IC / BC        0.838 0.1714 12207 -0.865  0.9549 
+ IC / SMBC      1.747 0.4932 12207  1.976  0.3563 
+ IC / SM        1.599 0.3737 12207  2.009  0.3372 
+ OB / BC        0.955 0.1021 12207 -0.427  0.9982 
+ OB / SMBC      1.992 0.4426 12207  3.100  0.0238 
+ OB / SM        1.823 0.2816 12207  3.889  0.0014 
+ BC / SMBC      2.085 0.4175 12207  3.669  0.0033 
+ BC / SM        1.908 0.2326 12207  5.303  <.0001 
+ SMBC / SM      0.915 0.2101 12207 -0.385  0.9989 
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, RouteType, Set, MapTest, UsedPhone 
+P value adjustment: tukey method for comparing a family of 6 estimates 
+Tests are performed on the log odds ratio scale 
+ MapTest  prob     SE    df lower.CL upper.CL
+ Fail    0.682 0.0598 12207    0.555    0.787
+ Pass    0.771 0.0484 12207    0.663    0.852
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, RouteType, Set, BackgrActivity_1, UsedPhone 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+ contrast    odds.ratio     SE    df t.ratio p.value
+ Fail / Pass      0.639 0.0387 12207 -7.393  <.0001 
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, RouteType, Set, BackgrActivity_1, UsedPhone 
+Tests are performed on the log odds ratio scale 
+ UsedPhone  prob     SE    df lower.CL upper.CL
+ No        0.745 0.0520 12207    0.631    0.834
+ Yes       0.711 0.0567 12207    0.589    0.809
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, RouteType, Set, MapTest, BackgrActivity_1 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+ contrast odds.ratio     SE    df t.ratio p.value
+ No / Yes       1.19 0.0729 12207 2.823   0.0048 
+
+Results are averaged over the levels of: FormatInfo, BackgrAvTraining, RouteType, Set, MapTest, BackgrActivity_1 
+Tests are performed on the log odds ratio scale 
